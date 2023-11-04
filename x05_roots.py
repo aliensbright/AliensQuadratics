@@ -24,8 +24,37 @@ x05. Determine the roots
 Create a function that will determine the roots.
 You may import the functions from your other assignments.
 '''
+def discriminant(a,b,c):
+  Dis=b**2 - 4 * a * c
+  return Dis
+
+def factorable2(dis):
+    if dis<0:
+      return False
+    elif dis==0:
+      return True
+  
+    else:
+      if dis**0.5%1==0:
+        return True
+      else:
+        return False
+
 
 def roots(a,b,c):
+  dis=discriminant(a,b,c)
+  numRoots=factorable2(dis)
+  if numRoots==True:
+    if dis==0:
+      roots=[(-b/(2*a)),(-b/(2*a))]
+      return roots
+    elif dis**0.5%1==0:
+      roots=[(-b+(dis)**0.5/(2*a)),(-b-(dis)**0.5/(2*a))]
+      return roots
+  else:
+    roots=[]
+    return roots
+
   '''
   input parameters:
   a, b, c : signed float
@@ -36,7 +65,8 @@ def roots(a,b,c):
   list with the 2 values of the roots if there are solutions
   None if there are no solutions
   '''
-  return None
+
+  return listRoot
 
 def main():
   assert (3 in roots(1,-1,-6)) == True
