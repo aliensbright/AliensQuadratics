@@ -14,36 +14,56 @@ Assignments:
 '''
 import x01_discriminant
 
-def factorable(a,b,c):
+def factorable1(a,b,c):
+  dis = b**2 - 4 * a * c
+  if dis<0:
+    return False
+  elif dis==0:
+    return True
+  else:
+    if dis**0.5%1==0:
+      return True
+    else:
+      return False
   '''
   Determine if the quadratic can be factored.
   Input parameters:
   a, b, c : signed float
   
   Alternately, you can make use of the previously calculated discriminant and use that instead by changing your function definition to:
-def factorable(discriminant):
+'''
 
+def factorable2(dis):
+    if dis<0:
+      return False
+    elif dis==0:
+      return True
+  
+    else:
+      if dis**0.5%1==0:
+        return True
+      else:
+        return False
+'''
   Return Value:
   boolean:
     True - can be factored
     False - can not be factored
   '''
   
-  return None
-
 def main():
   #uncomment the lines that match your assignment
-  #assert factorable(1,4,4) == True
-  #assert factorable(0) == True
+  assert factorable1(1,4,4) == True
+  assert factorable2(0) == True
   
-  #assert factorable(1,-1,-6) == True
-  #assert factorable(25) == True
+  assert factorable1(1,-1,-6) == True
+  assert factorable2(25) == True
   
-  #assert factorable(2,3,8) == False
-  #assert factorable(-55) == False
+  assert factorable1(2,3,8) == False
+  assert factorable2(-55) == False
   
-  #assert factorable(1,3,7) == False
-  #assert factorable(5) == False
+  assert factorable1(1,3,7) == False
+  assert factorable2(5) == False
   
 if __name__ == "__main__":
   main()
