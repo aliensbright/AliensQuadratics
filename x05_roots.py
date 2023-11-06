@@ -49,11 +49,13 @@ def roots(a,b,c):
       roots=[(-b/(2*a)),(-b/(2*a))]
       return roots
     elif dis**0.5%1==0:
-      roots=[(-b+(dis)**0.5/(2*a)),(-b-(dis)**0.5/(2*a))]
+      print(a,b,c)
+      roots=[((-b+(dis)**0.5)/(2*a)),((-b-(dis)**0.5)/(2*a))]
+      print(roots)
       return roots
   else:
     roots=[]
-    return roots
+    return None
 
   '''
   input parameters:
@@ -66,7 +68,6 @@ def roots(a,b,c):
   None if there are no solutions
   '''
 
-  return listRoot
 
 def main():
   assert (3 in roots(1,-1,-6)) == True
